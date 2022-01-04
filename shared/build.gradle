@@ -1,0 +1,5 @@
+dependencies {
+
+
+    implementation 'org.apache.activemq:apache-activemq:5.16.2'
+}

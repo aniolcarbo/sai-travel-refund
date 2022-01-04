@@ -1,0 +1,33 @@
+plugins {
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+    id 'application'
+}
+
+dependencies {
+    implementation project(":shared")
+    implementation 'org.apache.activemq:apache-activemq:5.16.2'
+}
+
+ext{
+    myMainClass = 'approval.gui.ApprovalMain';
+    fxModules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+
+javafx {
+    modules = fxModules
+}
+
+/*
+how to run with GRADLE
+
+run application with 2 arguments REQUEST_QUEUE and APP_NAME
+gradlew travel-approval:run --args="REQUEST_QUEUE APP_NAME"
+
+for example, you could run two approval apps:
+gradlew travel-approval:run --args "financeRequestQueue FinancialDepartment"
+gradlew travel-approval:run --args "administrationRequestQueue InternshipAdministration"
+*/
+application {
+    mainClass = myMainClass
+}
